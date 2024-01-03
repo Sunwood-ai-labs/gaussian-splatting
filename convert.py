@@ -11,7 +11,7 @@
 
 import os
 import logging
-from argparse import ArgumentParser
+from argparse import ArgumentParser 
 import shutil
 
 # This Python script is based on the shell converter script provided in the MipNerF 360 repository.
@@ -38,6 +38,7 @@ if not args.skip_matching:
         --ImageReader.single_camera 1 \
         --ImageReader.camera_model " + args.camera + " \
         --SiftExtraction.use_gpu " + str(use_gpu)
+    print(f"feat_extracton_cmd:{feat_extracton_cmd}")
     exit_code = os.system(feat_extracton_cmd)
     if exit_code != 0:
         logging.error(f"Feature extraction failed with code {exit_code}. Exiting.")
